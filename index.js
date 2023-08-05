@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const expressLayouts= require('express-ejs-layouts')
 
-const port=3000;
+const port=5000;
 
 //Used for Session Cookie
 const cookieParser = require('cookie-parser')
@@ -12,6 +12,8 @@ const passportLocal = require('./config/passport-local-strategy');
 
 app.use(express.static('./assets'))
 app.use(expressLayouts);
+app.listen(process.env.PORT || port, () => console.log('Listening on port ${port}'))
+
 const db = require('./config/mongoose')
 
 const flash = require('connect-flash');
